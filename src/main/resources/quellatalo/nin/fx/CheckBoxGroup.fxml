@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.*?>
+<fx:root xmlns:fx="http://javafx.com/fxml/1" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.121">
+    <CheckBox fx:id="cMain" style="-fx-background-color: #F4F4F4;" AnchorPane.leftAnchor="15">
+        <padding>
+            <Insets left="5.0" right="5.0"/>
+        </padding>
+    </CheckBox>
+    <FlowPane fx:id="fpContent" vgap="10"
+              style="-fx-border-radius: 10px; -fx-border-color: lightgray; -fx-border-size: 1px;"
+              AnchorPane.bottomAnchor="5" AnchorPane.leftAnchor="5" AnchorPane.rightAnchor="5"
+              AnchorPane.topAnchor="12.5">
+        <padding>
+            <Insets bottom="14.0" left="14.0" right="14.0" top="14.0"/>
+        </padding>
+    </FlowPane>
+</fx:root>
