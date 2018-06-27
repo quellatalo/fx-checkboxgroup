@@ -16,9 +16,7 @@ public class Main extends Application {
         items.put("a", "a");
         items.put("b", "b");
         items.put("c", "c");
-        CheckBoxGroup<String> checkBoxGroup = new CheckBoxGroup<>();
-        checkBoxGroup.setMainText("main");
-        checkBoxGroup.setCheckItems(items);
+        CheckBoxGroup<String> checkBoxGroup = new CheckBoxGroup<>("main", items);
 
         Map<String, String> bSubItems = new HashMap<>();
         bSubItems.put("ba", "b1");

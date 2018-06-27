@@ -49,6 +49,12 @@ public class CheckBoxGroup<T> extends AnchorPane {
         };
     }
 
+    public CheckBoxGroup(String mainText, Map<String, T> checkItems) {
+        this();
+        setMainText(mainText);
+        setCheckItems(checkItems);
+    }
+
     private void setChildAction(Runnable childAction) {
         this.childAction = childAction;
     }
@@ -95,7 +101,7 @@ public class CheckBoxGroup<T> extends AnchorPane {
     }
 
     public List<String> getCheckedTexts() {
-        List<String> checkedTexts = new ArrayList<String>();
+        List<String> checkedTexts = new ArrayList<>();
         for (CheckBoxGroup child : children.values()) {
             if (child.isSelected()) checkedTexts.add(child.getText());
         }
