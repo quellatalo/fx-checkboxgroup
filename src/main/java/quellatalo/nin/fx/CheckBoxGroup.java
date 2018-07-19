@@ -46,6 +46,7 @@ public class CheckBoxGroup<T> extends AnchorPane {
         childSelectEvent = () -> {
             cMain.setAllowIndeterminate(true);
             cMain.setIndeterminate(true);
+            if (childAction != null) childAction.run();
         };
     }
 
