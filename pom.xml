@@ -6,7 +6,7 @@
 
     <groupId>quellatalo.nin.fx</groupId>
     <artifactId>checkbox-group</artifactId>
-    <version>1.0.2-SNAPSHOT</version>
+    <version>1.0.3-SNAPSHOT</version>
     <build>
         <plugins>
             <plugin>
