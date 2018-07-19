@@ -23,12 +23,12 @@ public class CheckBoxGroup<T> extends AnchorPane {
     @FXML
     private FlowPane fpContent;
     private Map<String, T> checkItems;
-    private Map<String, CheckBoxGroup> children;
+    private Map<String, CheckBoxGroup> childrenCheckBoxGroup;
     private Runnable childSelectEvent;
     private Runnable childAction;
 
     public CheckBoxGroup() {
-        children = new HashMap<>();
+        childrenCheckBoxGroup = new HashMap<>();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CheckBoxGroup.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -75,10 +75,10 @@ public class CheckBoxGroup<T> extends AnchorPane {
             for (String m : checkItems.keySet()) {
                 CheckBoxGroup child = new CheckBoxGroup<>();
                 child.setMainText(m);
-                children.put(m, child);
+                childrenCheckBoxGroup.put(m, child);
                 fpContent.getChildren().add(child);
             }
-            for (CheckBoxGroup c : children.values()) {
+            for (CheckBoxGroup c : childrenCheckBoxGroup.values()) {
                 c.setChildAction(childSelectEvent);
             }
             resetChecks();
@@ -102,7 +102,7 @@ public class CheckBoxGroup<T> extends AnchorPane {
 
     public List<String> getCheckedTexts() {
         List<String> checkedTexts = new ArrayList<>();
-        for (CheckBoxGroup child : children.values()) {
+        for (CheckBoxGroup child : childrenCheckBoxGroup.values()) {
             if (child.isSelected()) checkedTexts.add(child.getText());
         }
         return checkedTexts;
@@ -113,12 +113,12 @@ public class CheckBoxGroup<T> extends AnchorPane {
     }
 
     public CheckBoxGroup getChildGroup(String key) {
-        return children.get(key);
+        return childrenCheckBoxGroup.get(key);
     }
 
     public List<T> getCheckedItems() {
         List<T> checkedItems = new ArrayList<>();
-        for (CheckBoxGroup child : children.values()) {
+        for (CheckBoxGroup child : childrenCheckBoxGroup.values()) {
             if (child.isSelected() || child.isIndeterminate()) checkedItems.add(checkItems.get(child.getText()));
         }
         return checkedItems;
@@ -130,7 +130,7 @@ public class CheckBoxGroup<T> extends AnchorPane {
 
     public void resetChecks(boolean checked) {
         cMain.setSelected(checked);
-        for (CheckBoxGroup c : children.values()) {
+        for (CheckBoxGroup c : childrenCheckBoxGroup.values()) {
             c.resetChecks(checked);
         }
     }
@@ -145,5 +145,9 @@ public class CheckBoxGroup<T> extends AnchorPane {
 
     public boolean isIndeterminate() {
         return cMain.isIndeterminate();
+    }
+
+    public Map<String, CheckBoxGroup> getChildrenCheckBoxGroup() {
+        return childrenCheckBoxGroup;
     }
 }
