@@ -22,7 +22,7 @@ public class Main extends Application {
         bSubItems.put("ba", "b1");
         bSubItems.put("bb", "b2");
         bSubItems.put("bc", "b3");
-        checkBoxGroup.getChildGroup("b").setCheckItems(bSubItems);
+        ((CheckBoxGroup<String>) checkBoxGroup.getChildGroup("b")).setCheckItems(bSubItems);
 
         primaryStage.setScene(new Scene(checkBoxGroup));
         primaryStage.show();
