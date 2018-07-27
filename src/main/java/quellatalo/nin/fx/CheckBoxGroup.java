@@ -130,6 +130,7 @@ public class CheckBoxGroup<T> extends AnchorPane {
     }
 
     public void resetChecks(boolean checked) {
+        cMain.setIndeterminate(false);
         cMain.setSelected(checked);
         for (CheckBoxGroup<?> c : childrenCheckBoxGroup.values()) {
             c.resetChecks(checked);
